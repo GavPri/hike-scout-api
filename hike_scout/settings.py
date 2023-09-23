@@ -65,7 +65,7 @@ DEBUG = 'DEV' in os.environ
 ALLOWED_HOSTS = [
     '8000-gavpri-hikescoutapi-0cp6fkt7xx2.ws-eu104.gitpod.io',
     'localhost',
-    'hike_scout_api.herokuapp.com'
+    'hike-scout-api-eba1d52cdbb4.herokuapp.com',
     ]
 
 

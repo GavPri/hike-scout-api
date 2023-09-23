@@ -66,8 +66,8 @@ DEBUG = 'DEV' in os.environ
 ALLOWED_HOSTS = [
     '8000-gavpri-hikescoutapi-0cp6fkt7xx2.ws-eu104.gitpod.io',
     'localhost',
-    # os.environ.get('ALLOWED_HOST'),
-    'https://hike-scout-api-eba1d52cdbb4.herokuapp.com'
+    os.environ.get('ALLOWED_HOST'),
+    # 'https://hike-scout-api-eba1d52cdbb4.herokuapp.com'
     ]
 
 
@@ -109,9 +109,10 @@ if 'CLIENT_ORIGIN' in os.environ:
      CORS_ALLOWED_ORIGINS = [
          os.environ.get('CLIENT_ORIGIN')
      ]
-else:
+if 'CLIENT_ORIGIN_DEV' in os.environ:
+    extracted_url = re.match(r'^.+-', os.environ.get('CLIENT_ORIGIN_DEV', ''), re.IGNORECASE).group(0)
     CORS_ALLOWED_ORIGIN_REGEXES = [
-    r"https://.*\.gitpod\.io$",
+        rf"{extracted_url}(eu|us)\d+\w\.gitpod\.io$",
     ]
     
 

@@ -1,6 +1,7 @@
 from django.db import models
 from django.db.models.signals import post_save
-from django.contrib.auth.models import User 
+from django.contrib.auth.models import User
+# from geoposition.fields import GeopositionField 
 
 class Posts(models.Model):
     image_filter_choices = [
@@ -28,9 +29,9 @@ class Posts(models.Model):
         upload_to='images/', default='../default-post_cxcz4u',
         blank = True
     )
-    location = GeopositionField(blank=True)
+    # location = GeopositionField(blank=True)
     image_filter = models.CharField(
-        max_length=32, choices=image_filter_choices, default=normal
+        max_length=32, choices=image_filter_choices, default=format
     )
 
     class Meta:
@@ -39,8 +40,3 @@ class Posts(models.Model):
     def __str__(self):
         return f"{self.owner} - {self.title}"
 
-# def create_profile(sender, instance, created, **kwargs):
-#     if created:
-#         Profile.objects.create(owner=instance)
-
-# post_save.connect(create_profile, sender=User)

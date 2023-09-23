@@ -46,8 +46,8 @@ if 'DEV' not in os.environ:
 
 REST_USE_JWT = True
 JWT_AUTH_SECURE = True
-JWT_AUTH_COOKIE = 'hike-scout-auth'
-JWT_AUTH_REFRESH_COOKIE = 'hike-scout-refresh-token'
+JWT_AUTH_COOKIE = 'my-app-auth'
+JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token'
 JW_AUTH_SAMESITE = 'None'
 
 REST_AUTH_SERIALIZERS = {
@@ -114,6 +114,11 @@ if 'CLIENT_ORIGIN_DEV' in os.environ:
     CORS_ALLOWED_ORIGIN_REGEXES = [
         rf"{extracted_url}(eu|us)\d+\w\.gitpod\.io$",
     ]
+else:
+    CORS_ALLOWED_ORIGIN_REGEXES = [
+        r"https://.*\.gitpod\.io$",
+    ]
+
     
 
 CORS_ALLOW_CREDENTIALS = True       

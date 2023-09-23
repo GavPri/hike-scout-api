@@ -109,7 +109,7 @@ if 'CLIENT_ORIGIN' in os.environ:
         ]
 else:
     CORS_ALLOWED_ORIGINS = [
-        r"^https://.*\.gitpod\io$",
+        r"https://.*\.gitpod\io$",
         ]
 
 CORS_ALLOW_CREDENTIALS = True       

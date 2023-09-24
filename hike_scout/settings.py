@@ -64,7 +64,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = 'DEV' in os.environ
 
 ALLOWED_HOSTS = [
-    '8000-gavpri-hikescoutapi-0cp6fkt7xx2.ws-eu104.gitpod.io',
+    '8000-gavpri-hikescoutapi-21o7c7jviwl.ws-eu104.gitpod.io',
     'localhost',
     os.environ.get('ALLOWED_HOST'),
     # 'https://hike-scout-api-eba1d52cdbb4.herokuapp.com'
@@ -93,6 +93,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'profiles',
     'posts',
+    'comments',
+    'likes',
 ]
 SITE_ID = 1
 MIDDLEWARE = [

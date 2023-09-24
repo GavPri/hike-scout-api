@@ -67,7 +67,8 @@ ALLOWED_HOSTS = [
     '8000-gavpri-hikescoutapi-21o7c7jviwl.ws-eu104.gitpod.io',
     'localhost',
     os.environ.get('ALLOWED_HOST'),
-    ]
+    'hike-scout-api-eba1d52cdbb4.herokuapp.com',
+]
 
 
 # Application definition

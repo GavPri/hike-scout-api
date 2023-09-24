@@ -4,6 +4,7 @@ from rest_framework import permissions, filters
 from hike_scout.permissions import IsOwnerOrReadOnly
 from .models import Posts
 from .serializers import PostSerializer
+from django_filters.rest_framework import DjangoFilterBackend
 
 
 class PostList(generics.ListCreateAPIView):
@@ -19,8 +20,14 @@ class PostList(generics.ListCreateAPIView):
     ).order_by('-created_at')
     filter_backends = [
         filters.OrderingFilter,
-        filters.SearchFilter
+        filters.SearchFilter,
+        DjangoFilterBackend
         ]
+    filterset_fields = [
+        'owner__followed__owner__profile',
+        'like__owner__profile',
+        'owner__profile',
+    ]
     search_fields=[
         'owner__username',
         'title',
